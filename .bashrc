@@ -10,6 +10,7 @@ alias cont='git rebase --continue'
 
 alias push='git push origin $(git_current_branch)'
 alias pull='git pull origin $(git_current_branch)'
+alias gco='git checkout $1'
 
 function git_current_branch() {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///'
