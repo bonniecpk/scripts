@@ -76,7 +76,29 @@ end
 
 # Block Example 2
 # def hello(&val)
-#   puts val
+#   puts val        # print Proc
+#   puts val.call   # print 3
 # end
 # 
 # hello { 3 }
+
+
+# Steps:
+# 1) :to_i.to_proc is called
+# 2) &Proc is converted to a block
+# 3) :to_i.to_proc.call(element)
+# p ['1', '2', '3'].map(&:to_i)
+
+# In other words, the above is translated to the following:
+# p (['1', '2', '3'].map do |e|
+#   :to_i.to_proc.call(e)
+# end)
+
+
+# Precondition: Ruby > 2.0
+# def test(*args, **options)
+#   p args
+#   p options
+# end
+# 
+# test(1, 2, 3, foo: 'foo', really: 'really')
