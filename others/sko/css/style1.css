@@ -1,0 +1,21 @@
+.neptune{
+  border: 2px solid #394057;
+  top: 60px;
+  left: 220px;
+  display: block;
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 262px;
+}
+
+.pluto{
+  border: 2px solid #394057;
+  top: 30px;
+  left: 190px;
+  display: block;
+  position: absolute;
+  width: 580px;
+  height: 580px;
+  border-radius: 292px;
+}
