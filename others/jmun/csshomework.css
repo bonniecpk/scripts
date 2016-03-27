@@ -5,19 +5,19 @@ ul li{
 }
 
 .pluto{
-	width: 580px;
+    width: 580px;
 	height: 580px;
 	border-radius: 292px;
 	top: 30px;
-    left: 190px;
-    z-index: 91;
+	left: 190px;
+	z-index: 91;
 }
 
 .neptune{
 	width: 520px;
 	height: 520px;
 	border-radius: 262px;
-    top: 60px;
-    left: 220px;
-    z-index: 92;
+	top: 60px;
+	left: 220px;
+	z-index: 92;
 }
