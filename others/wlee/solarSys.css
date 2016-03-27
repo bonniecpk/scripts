@@ -1,10 +1,10 @@
 ul li {
-	border: 2px solid #394057;
-	position: absolute;
+    border: 2px solid #394057;
+    position: absolute;
 }
 
 .pluto {
-	width: 580px;
+    width: 580px;
     height: 580px;
     border-radius: 292px;
     top: 30px;
@@ -12,7 +12,7 @@ ul li {
 }
 
 .neptune {
-	width: 520px;
+    width: 520px;
     height: 520px;
     border-radius: 262px;
     top: 60px;
