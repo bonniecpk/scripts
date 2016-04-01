@@ -2,6 +2,10 @@ ul li {
     border: 2px solid #394057;
     position: absolute;
     text-indent: -9999px;
+    /* Animation */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: orbit;
 }
 
 span {
@@ -25,6 +29,7 @@ span {
     border-radius: 52px;
     top: 270px;
     left: 430px;
+    animation-duration: 5s;
 }
 
 .mercury span {
@@ -39,6 +44,7 @@ span {
     border-radius: 82px;
     top: 240px;
     left: 400px;
+    animation-duration: 8s;
 }
 
 .venus span {
@@ -53,12 +59,18 @@ span {
     border-radius: 112px;
     top: 210px;
     left: 370px;
+    animation-duration: 12s;
 }
 
 .earth span {
     background: #06c;
     top: 56px;
     left: 5px;
+    /* Animation */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: moon;
+    animation-duration: 2s;
 }
 
 .earth span .moon {
@@ -76,6 +88,7 @@ span {
     border-radius: 142px;
     top: 180px;
     left: 340px;
+    animation-duration: 20s;
 }
 
 .mars span {
@@ -90,6 +103,7 @@ span {
     border-radius: 172px;
     top: 150px;
     left: 310px;
+    animation-duration: 30s;
 }
 
 .jupiter span {
@@ -104,6 +118,7 @@ span {
     border-radius: 202px;
     top: 120px;
     left: 280px;
+    animation-duration: 60s;
 }
 
 .saturn span {
@@ -129,6 +144,7 @@ span {
     border-radius: 232px;
     top: 90px;
     left: 250px;
+    animation-duration: 70s;
 }
 
 .uranus span {
@@ -143,6 +159,7 @@ span {
     border-radius: 262px;
     top: 60px;
     left: 220px;
+    animation-duration: 100s;
 }
 
 .neptune span {
@@ -157,10 +174,30 @@ span {
     border-radius: 292px;
     top: 30px;
     left: 190px;
+    animation-duration: 120s;
 }
 
 .pluto span {
     background: #7c6a5c;
     top: 79px;
     left: 79px;
+}
+
+/* Animation */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes moon {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
 }
