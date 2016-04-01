@@ -1,0 +1,23 @@
+ul li{
+	
+	border: 2px solid #394057;
+	position: absolute;
+}
+
+.pluto{
+	width: 580px;
+	height: 580px;
+	border-radius: 292px;
+	top: 30px;
+	left: 190px;
+	z-index: 91;
+}
+
+.neptune{
+	width: 520px;
+	height: 520px;
+	border-radius: 262px;
+	top: 60px;
+	left: 220px;
+	z-index: 92;
+}
