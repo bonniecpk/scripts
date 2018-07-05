@@ -25,8 +25,8 @@ a, b, c, d, e, f = range(6)
 dag = {
   a: {},
   b: {a},
-  c: {b},
-  d: {b, c},
+  c: {f},
+  d: {b},
   e: {d},
   f: {a, b, d, e}
 }
