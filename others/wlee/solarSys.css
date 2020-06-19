@@ -1,14 +1,156 @@
 ul li {
     border: 2px solid #394057;
     position: absolute;
+    text-indent: -9999px;
+    /* Animation */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: orbit;
 }
 
-.pluto {
-    width: 580px;
-    height: 580px;
-    border-radius: 292px;
-    top: 30px;
-    left: 190px;
+span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+/*.sun {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    top: 302px;
+    left: 462px;
+}*/
+
+.mercury {
+    width: 100px;
+    height: 100px;
+    border-radius: 52px;
+    top: 270px;
+    left: 430px;
+    animation-duration: 5s;
+}
+
+.mercury span {
+    background: #b6bac5;
+    top: 10px;
+    left: 10px;
+}
+
+.venus {
+    width: 160px;
+    height: 160px;
+    border-radius: 82px;
+    top: 240px;
+    left: 400px;
+    animation-duration: 8s;
+}
+
+.venus span {
+    background: #bf8639;
+    top: 118px;
+    left: 5px;
+}
+
+.earth {
+    width: 220px;
+    height: 220px;
+    border-radius: 112px;
+    top: 210px;
+    left: 370px;
+    animation-duration: 12s;
+}
+
+.earth span {
+    background: #06c;
+    top: 56px;
+    left: 5px;
+    /* Animation */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: moon;
+    animation-duration: 2s;
+}
+
+.earth span .moon {
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ccc;
+    top: 12px;
+    left: 12px;
+}
+
+.mars {
+    width: 280px;
+    height: 280px;
+    border-radius: 142px;
+    top: 180px;
+    left: 340px;
+    animation-duration: 20s;
+}
+
+.mars span {
+    background: #aa4200;
+    top: 0px;
+    left: 175px;
+}
+
+.jupiter {
+    width: 340px;
+    height: 340px;
+    border-radius: 172px;
+    top: 150px;
+    left: 310px;
+    animation-duration: 30s;
+}
+
+.jupiter span {
+    background: #e0ae6f;
+    top: 67px;
+    left: 24px;
+}
+
+.saturn {
+    width: 400px;
+    height: 400px;
+    border-radius: 202px;
+    top: 120px;
+    left: 280px;
+    animation-duration: 60s;
+}
+
+.saturn span {
+    background: #dfd3a9;
+    top: 24px;
+    left: 300px;
+}
+
+.saturn span .ring {
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+    border: 2px solid #5a4e34;
+    background: none;
+    top: -3px;
+    left: -3px;
+    transform: skewY(50deg);
+}
+
+.uranus {
+    width: 460px;
+    height: 460px;
+    border-radius: 232px;
+    top: 90px;
+    left: 250px;
+    animation-duration: 70s;
+}
+
+.uranus span {
+    background: #82b3d1;
+    top: 7px;
+    left: 300px;
 }
 
 .neptune {
@@ -17,4 +159,45 @@ ul li {
     border-radius: 262px;
     top: 60px;
     left: 220px;
+    animation-duration: 100s;
+}
+
+.neptune span {
+    background: #77c2ec;
+    top: 0px;
+    left: 200px;
+}
+
+.pluto {
+    width: 580px;
+    height: 580px;
+    border-radius: 292px;
+    top: 30px;
+    left: 190px;
+    animation-duration: 120s;
+}
+
+.pluto span {
+    background: #7c6a5c;
+    top: 79px;
+    left: 79px;
+}
+
+/* Animation */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes moon {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
 }
