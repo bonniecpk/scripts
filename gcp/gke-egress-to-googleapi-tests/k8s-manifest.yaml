@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gcs-egress-tester-sa
+  annotations:
+    iam.gke.io/gcp-service-account: gcs-egress-tester-sa@${PROJECT_ID}.iam.gserviceaccount.com
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcs-egress-tester
+  labels:
+    app: gcs-egress-tester
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcs-egress-tester
+  template:
+    metadata:
+      labels:
+        app: gcs-egress-tester
+    spec:
+      serviceAccountName: gcs-egress-tester-sa
+      containers:
+      - name: gcs-egress-tester
+        # The image path uses ${PROJECT_ID} for dynamic environment variable substitution.
+        # Deploy via: 
+        # PROJECT_ID=your-project-id; envsubst < k8s-manifest.yaml | kubectl apply -f -
+        image: us-central1-docker.pkg.dev/${PROJECT_ID}/repo-name/gcs-egress-tester:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gcs-egress-tester-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: gcs-egress-tester
+  ports:
+  - port: 80
+    targetPort: 8080

@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gcs-egress-tester-sa
+  annotations:
+    iam.gke.io/gcp-service-account: gcs-egress-tester-sa@${PROJECT_ID}.iam.gserviceaccount.com
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcs-egress-tester-clusterip
+  labels:
+    app: gcs-egress-tester-clusterip
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gcs-egress-tester-clusterip
+  template:
+    metadata:
+      labels:
+        app: gcs-egress-tester-clusterip
+    spec:
+      serviceAccountName: gcs-egress-tester-sa
+      containers:
+      - name: gcs-egress-tester-clusterip
+        # The image path uses ${PROJECT_ID} for dynamic environment variable substitution.
+        # Deploy via: 
+        # PROJECT_ID=your-project-id; envsubst < k8s-manifest-clusterip.yaml | kubectl apply -f -
+        image: us-central1-docker.pkg.dev/${PROJECT_ID}/repo-name/gcs-egress-tester:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gcs-egress-tester-clusterip-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: gcs-egress-tester-clusterip
+  ports:
+  - port: 80
+    targetPort: 8080
